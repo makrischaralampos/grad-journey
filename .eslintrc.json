@@ -2,18 +2,25 @@
   "root": true,
   "extends": ["next/core-web-vitals"],
   "parser": "@typescript-eslint/parser",
-  "plugins": ["@typescript-eslint", "import"],
+  "plugins": ["@typescript-eslint", "import", "tailwindcss"],
   "rules": {
     "import/order": [
       "warn",
       {
         "alphabetize": { "order": "asc", "caseInsensitive": true },
         "newlines-between": "always",
-        "groups": ["builtin", "external", "internal", ["parent", "sibling", "index"], "object"],
-        "pathGroups": [{ "pattern": "@/**", "groupd": "internal", "position": "after" }],
+        "groups": ["builtin", "external", "internal", ["parent", "sibling", "index"]],
+        "pathGroups": [{ "pattern": "@/**", "group": "internal", "position": "after" }],
         "pathGroupsExcludedImportTypes": ["builtin"]
       }
     ],
-    "@typescript-eslint/explicit-function-return-type": "off"
+    "tailwindcss/classnames-order": "warn",
+    "tailwindcss/no-custom-classname": "off"
+  },
+  "settings": {
+    "tailwindcss": {
+      "groupByResponsive": true,
+      "groupByLayer": true
+    }
   }
 }
